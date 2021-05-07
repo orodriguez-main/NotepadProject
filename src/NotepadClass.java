@@ -8,7 +8,6 @@ import javax.swing.JTextArea;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
 import javax.swing.undo.UndoManager;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -26,13 +25,16 @@ public class NotepadClass implements ActionListener{
 
     //File menu:
     //There are the options that are displayed on the tab:
-    JMenu File, Edit, Format, Color, Credits;
+    JMenu File, Edit, Format, Sort, Color, Credits;
 
     //Items under File tab:
     JMenuItem New, Open, Save, SaveAs;
 
     //Items under the Edit tab:
     JMenuItem Copy, Paste, Undo, Redo, SelectAll, Delete, Date;
+
+    //Items under the Sort tab:
+    JMenuItem SortByName, SortBySize, SortByDate;
 
     //Items under the Color tab:
     JMenuItem Color1, Color2, Color3;
@@ -44,12 +46,13 @@ public class NotepadClass implements ActionListener{
     //Item under the Credits tab:
     JMenuItem Authors;
 
-    //Instantiate objects of the classes in order to call upon them
+    //Instantiate objects of the classes in order to call upon the public members:
     FileClass fileClass = new FileClass(this);
     FormatClass formatClass = new FormatClass(this);
     ColorClass colorClass = new ColorClass(this);
     EditClass editClass = new EditClass(this);
     CreditsClass creditsClass = new CreditsClass(this);
+    SortingClass sortingClass = new SortingClass(this);
     UndoManager undoManager = new UndoManager();
 
 
@@ -61,6 +64,7 @@ public class NotepadClass implements ActionListener{
         createFileMenu();
         createEditMenu();
         createFormatMenu();
+        createSortingMenu();
         createColorMenu();
         createCreditsMenu();
         //Default font times new roman
@@ -79,7 +83,7 @@ public class NotepadClass implements ActionListener{
     }
 
     public void createFrame(){
-        MainFrame = new JFrame("JOURNAL");//Creates a new JFrame named Journal
+        MainFrame = new JFrame("CS 3500 PROJECT");//Creates a new JFrame named Journal
         MainFrame.setLocation(450, 100);//Displays the notepadClass close to the center of the screen
         MainFrame.setSize(600,600);//Sets frame size
         MainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//Frame close and program stops running when user clicks on red X
@@ -115,6 +119,9 @@ public class NotepadClass implements ActionListener{
         Format = new JMenu("FORMAT");
         MenuBar.add(Format);
 
+        Sort = new JMenu("SORT");
+        MenuBar.add(Sort);
+
         Color = new JMenu("COLOR");
         MenuBar.add(Color);
 
@@ -123,12 +130,12 @@ public class NotepadClass implements ActionListener{
     }
 
     public void createFileMenu(){
-        New = new JMenuItem("New File");
+        New = new JMenuItem("New");
         New.addActionListener(this);
         New.setActionCommand("New");
         File.add(New);
 
-        Open = new JMenuItem("Search/Sort Files");
+        Open = new JMenuItem("Open");
         Open.addActionListener(this);
         Open.setActionCommand("Open");
         File.add(Open);
@@ -240,6 +247,23 @@ public class NotepadClass implements ActionListener{
         FontSize.add(FontSize28);
     }
 
+    public void createSortingMenu(){
+        SortByName = new JMenuItem("By Name");
+        SortByName.addActionListener(this);
+        SortByName.setActionCommand("By Name");
+        Sort.add(SortByName);
+
+        SortByDate = new JMenuItem("By Date");
+        SortByDate.addActionListener(this);
+        SortByDate.setActionCommand("By Date");
+        Sort.add(SortByDate);
+
+        SortBySize = new JMenuItem("By Size");
+        SortBySize.addActionListener(this);
+        SortBySize.setActionCommand("By Size");
+        Sort.add(SortBySize);
+    }
+
     public void createColorMenu(){
         Color1 = new JMenuItem("White");
         Color1.addActionListener(this);
@@ -289,6 +313,9 @@ public class NotepadClass implements ActionListener{
             case "size20": formatClass.setFontType(20); break;
             case "size24": formatClass.setFontType(24); break;
             case "size28": formatClass.setFontType(28); break;
+            case "By Name": sortingClass.sortByName();break;
+            case "By Date": sortingClass.sortByDate(); break;
+            case "By Size": sortingClass.sortBySize(); break;
             case "White": colorClass.changeBackgroundColor(command); break;
             case "Black": colorClass.changeBackgroundColor(command); break;
             case "Blue": colorClass.changeBackgroundColor(command); break;
