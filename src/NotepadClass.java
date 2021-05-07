@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class JournalClass implements ActionListener{
+public class NotepadClass implements ActionListener{
     JFrame MainFrame;
 
     //Text area:
@@ -53,8 +53,8 @@ public class JournalClass implements ActionListener{
     UndoManager undoManager = new UndoManager();
 
 
-    /*Constructor for journalClass: */
-    public JournalClass(){
+    /*Constructor for notepadClass: */
+    public NotepadClass(){
         createFrame();
         createTextArea();
         createMenuBar();
@@ -80,7 +80,7 @@ public class JournalClass implements ActionListener{
 
     public void createFrame(){
         MainFrame = new JFrame("JOURNAL");//Creates a new JFrame named Journal
-        MainFrame.setLocation(450, 100);//Displays the journalClass close to the center of the screen
+        MainFrame.setLocation(450, 100);//Displays the notepadClass close to the center of the screen
         MainFrame.setSize(600,600);//Sets frame size
         MainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//Frame close and program stops running when user clicks on red X
         MainFrame.setVisible(true);//Makes frame visible; won't appear otherwise

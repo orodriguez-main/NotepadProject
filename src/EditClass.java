@@ -1,38 +1,38 @@
 import java.util.Date;
 public class EditClass {
-    JournalClass journalClass;
+    NotepadClass notepadClass;
     Date date = new Date();
 
     //Constructor:
-    public EditClass(JournalClass journalClass){
-        this.journalClass = journalClass;
+    public EditClass(NotepadClass notepadClass){
+        this.notepadClass = notepadClass;
     }
 
     public void copyText(){
-        journalClass.TextArea.copy();
+        notepadClass.TextArea.copy();
     }
 
     public void pasteText(){
-        journalClass.TextArea.paste();
+        notepadClass.TextArea.paste();
     }
 
     public void undoText(){
-        journalClass.undoManager.undo();
+        notepadClass.undoManager.undo();
     }
 
     public void redoText(){
-        journalClass.undoManager.redo();
+        notepadClass.undoManager.redo();
     }
 
     public void selectAllText(){
-        journalClass.TextArea.selectAll();
+        notepadClass.TextArea.selectAll();
     }
 
     public void deleteText(){
-        journalClass.TextArea.replaceSelection("");
+        notepadClass.TextArea.replaceSelection("");
     }
 
     public void printDate(){
-        journalClass.TextArea.setText(String.valueOf(date));
+        notepadClass.TextArea.setText(String.valueOf(date));
     }
 }

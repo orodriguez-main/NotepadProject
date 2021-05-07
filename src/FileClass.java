@@ -1,45 +1,44 @@
 import java.awt.*;
 import java.io.*;
-import javax.swing.*;
 
 public class FileClass {
 
-    JournalClass journalClass;//import journalClass class and name it journalClass
+    NotepadClass notepadClass;//import notepadClass class and name it notepadClass
     String FileName;
     String FileAddress;
 
     //Constructor:
-    public FileClass(JournalClass JournalClass){
-        this.journalClass = JournalClass;//we can access the journalClass class
+    public FileClass(NotepadClass NotepadClass){
+        this.notepadClass = NotepadClass;//we can access the notepadClass class
     }
 
     public void createNewFile(){
-        journalClass.TextArea.setText("");
-        journalClass.MainFrame.setTitle("New");
+        notepadClass.TextArea.setText("");
+        notepadClass.MainFrame.setTitle("New");
         FileName = null;
         FileAddress = null;
 
     }
 
     public void openFile(){
-        FileDialog fd = new FileDialog(journalClass.MainFrame, "Open", FileDialog.LOAD);//access fileClass dialog
+        FileDialog fd = new FileDialog(notepadClass.MainFrame, "Open", FileDialog.LOAD);//access fileClass dialog
         fd.setVisible(true);// make it appear
 
         if (fd.getFile()!= null){
             FileName = fd.getFile();
             FileAddress = fd.getDirectory();
-            journalClass.MainFrame.setTitle(FileName);
+            notepadClass.MainFrame.setTitle(FileName);
         }
         System.out.println("File address and fileClass name: " + FileAddress + FileName);
 
         try{
             BufferedReader br = new BufferedReader(new FileReader(FileAddress + FileName));//you need address to read a fileClass
-            journalClass.TextArea.setText("");
+            notepadClass.TextArea.setText("");
 
             String line = null;
 
             while ((line = br.readLine())!= null){
-                journalClass.TextArea.append(line + "\n");
+                notepadClass.TextArea.append(line + "\n");
             }
             br.close();
 
@@ -55,8 +54,8 @@ public class FileClass {
         else {
             try{
                 FileWriter fw = new FileWriter(FileAddress + FileName);
-                fw.write(journalClass.TextArea.getText());
-                journalClass.MainFrame.setTitle(FileName);
+                fw.write(notepadClass.TextArea.getText());
+                notepadClass.MainFrame.setTitle(FileName);
                 fw.close();
 
             }catch(Exception e){
@@ -66,18 +65,18 @@ public class FileClass {
     }
 
     public void saveAs(){
-        FileDialog fd = new FileDialog(journalClass.MainFrame, "Save", FileDialog.SAVE);
+        FileDialog fd = new FileDialog(notepadClass.MainFrame, "Save", FileDialog.SAVE);
         fd.setVisible(true);
 
         if (fd.getFile()!= null){
             FileName = fd.getFile();
             FileAddress = fd.getDirectory();
-            journalClass.MainFrame.setTitle(FileName);
+            notepadClass.MainFrame.setTitle(FileName);
         }
 
         try{
             FileWriter fw = new FileWriter(FileAddress + FileName);
-            fw.write(journalClass.TextArea.getText());
+            fw.write(notepadClass.TextArea.getText());
             fw.close();
 
         }catch (Exception e){

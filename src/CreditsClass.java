@@ -1,14 +1,14 @@
 public class CreditsClass {
-    JournalClass journalClass;
+    NotepadClass notepadClass;
     String authors = "This journal application was created by Oscar .";
 
     //Constructor:
-    public CreditsClass (JournalClass journalClass){
-        this.journalClass = journalClass;
+    public CreditsClass (NotepadClass notepadClass){
+        this.notepadClass = notepadClass;
     }
     //This method prints authors in the text area:
     public void  printAuthors(){
-        journalClass.TextArea.setText(String.valueOf(authors));
+        notepadClass.TextArea.setText(String.valueOf(authors));
     }
 
 }
