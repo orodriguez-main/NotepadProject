@@ -2,7 +2,6 @@ import java.util.Date;
 public class EditClass {
     NotepadClass notepadClass;
     Date date = new Date();
-
     //Constructor:
     public EditClass(NotepadClass notepadClass){
         this.notepadClass = notepadClass;

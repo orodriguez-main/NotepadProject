@@ -17,16 +17,15 @@ public class FileClass {
         notepadClass.MainFrame.setTitle("New");
         FileName = null;
         FileAddress = null;
-
     }
 
     public void openFile(){
-        FileDialog fd = new FileDialog(notepadClass.MainFrame, "Open", FileDialog.LOAD);//access fileClass dialog
-        fd.setVisible(true);// make it appear
+        FileDialog fileDialog = new FileDialog(notepadClass.MainFrame, "Open", FileDialog.LOAD);//access fileClass dialog
+        fileDialog.setVisible(true);// make it appear
 
-        if (fd.getFile()!= null){
-            FileName = fd.getFile();
-            FileAddress = fd.getDirectory();
+        if (fileDialog.getFile()!= null){
+            FileName = fileDialog.getFile();
+            FileAddress = fileDialog.getDirectory();
             notepadClass.MainFrame.setTitle(FileName);
         }
         System.out.println("File address and fileClass name: " + FileAddress + FileName);

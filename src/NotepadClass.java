@@ -75,17 +75,12 @@ public class NotepadClass implements ActionListener{
 
         //Word wrap on by default:
         formatClass.setWordWrap();
-
-//        //Default background color:
-//        MainFrame.getContentPane().setBackground(new Color(100,149,237));
-//        TextArea.setBackground(new Color(100,149,237));
-//        TextArea.setForeground(java.awt.Color.BLACK);
     }
 
     public void createFrame(){
         MainFrame = new JFrame("CS 3500 PROJECT");//Creates a new JFrame named Journal
-        MainFrame.setLocation(450, 100);//Displays the notepadClass close to the center of the screen
-        MainFrame.setSize(600,600);//Sets frame size
+        MainFrame.setLocation(400, 40);//Displays the notepadClass close to the center of the screen
+        MainFrame.setSize(800,550);//Sets frame size
         MainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//Frame close and program stops running when user clicks on red X
         MainFrame.setVisible(true);//Makes frame visible; won't appear otherwise
     }
@@ -319,7 +314,7 @@ public class NotepadClass implements ActionListener{
             case "White": colorClass.changeBackgroundColor(command); break;
             case "Black": colorClass.changeBackgroundColor(command); break;
             case "Blue": colorClass.changeBackgroundColor(command); break;
-            case "Authors": creditsClass.printAuthors(); break;
+            case "Authors": creditsClass.printAuthor(); break;
         }
     }
 }
