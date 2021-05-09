@@ -14,13 +14,13 @@ public class FormatClass {
             notepadClass.WordWrapOn = true;
             notepadClass.TextArea.setLineWrap(true);
             notepadClass.TextArea.setWrapStyleWord(true);
-            notepadClass.Wrap.setText("Word Wrap: On");
+            notepadClass.Wrap.setText("Word Wrap: ON");
         }
         else if (notepadClass.WordWrapOn == true){
             notepadClass.WordWrapOn = false;
             notepadClass.TextArea.setLineWrap(false);
             notepadClass.TextArea.setWrapStyleWord(false);
-            notepadClass.Wrap.setText("Word Wrap: On");
+            notepadClass.Wrap.setText("Word Wrap: OFF");
         }
     }
 

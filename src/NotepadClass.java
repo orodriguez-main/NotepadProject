@@ -78,7 +78,7 @@ public class NotepadClass implements ActionListener{
     }
 
     public void createFrame(){
-        MainFrame = new JFrame("CS 3500 PROJECT");//Creates a new JFrame named Journal
+        MainFrame = new JFrame("CS 3100 PROJECT");//Creates a new JFrame named Journal
         MainFrame.setLocation(400, 40);//Displays the notepadClass close to the center of the screen
         MainFrame.setSize(800,550);//Sets frame size
         MainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//Frame close and program stops running when user clicks on red X
@@ -277,9 +277,9 @@ public class NotepadClass implements ActionListener{
     }
 
     public void createCreditsMenu(){
-        Authors = new JMenuItem("Authors");
+        Authors = new JMenuItem("Author");
         Authors.addActionListener(this);
-        Authors.setActionCommand("Authors");
+        Authors.setActionCommand("Author");
         Credits.add(Authors);
     }
 
@@ -314,7 +314,7 @@ public class NotepadClass implements ActionListener{
             case "White": colorClass.changeBackgroundColor(command); break;
             case "Black": colorClass.changeBackgroundColor(command); break;
             case "Blue": colorClass.changeBackgroundColor(command); break;
-            case "Authors": creditsClass.printAuthor(); break;
+            case "Author": creditsClass.printAuthor(); break;
         }
     }
 }

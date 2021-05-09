@@ -1,6 +1,6 @@
 public class CreditsClass {
     NotepadClass notepadClass;
-    String author = "This journal application was created for CS3100 by Oscar Rodriguez.";
+    String author = "This notepad application was created for CS3100 by Oscar Rodriguez.";
 
     //Constructor:
     public CreditsClass (NotepadClass notepadClass){
