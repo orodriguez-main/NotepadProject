@@ -6,14 +6,14 @@ import java.util.Date;
 
 public class SortingClass {
     NotepadClass notepadClass;
-    String DirectoryPathForClass = "C:\\Users\\osprs\\OneDrive\\Desktop\\CS 3500 Folder";
+    String DirectoryPath = "C:\\Users\\osprs\\OneDrive\\Desktop\\CS 3500 Folder";
 
     public SortingClass(NotepadClass NotepadClass){
         this.notepadClass = NotepadClass;
     }
 
     public void sortByName() {
-        File dir = new File(DirectoryPathForClass);
+        File dir = new File(DirectoryPath);
 
         File[] files = dir.listFiles();
 
@@ -31,7 +31,7 @@ public class SortingClass {
     }
 
     public void sortByDate() {
-        File dir = new File(DirectoryPathForClass);
+        File dir = new File(DirectoryPath);
 
         File[] files = dir.listFiles();
 
@@ -55,7 +55,7 @@ public class SortingClass {
     }
 
     public void sortBySize(){
-        File dir = new File(DirectoryPathForClass);
+        File dir = new File(DirectoryPath);
 
         File[] files = dir.listFiles();
 
